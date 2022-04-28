@@ -5,7 +5,7 @@ import domain.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductRepositoryImIArrys {
+public class ProductRepositoryImplArrays implements IProductRepository{
 
     public static List<Product> products;
 
@@ -17,10 +17,10 @@ public class ProductRepositoryImIArrys {
     private void initialize() {
         products.add(new Product(1, "Carne de Res", 6000d));
         products.add(new Product(2, "Carne de Pollo", 5500d));
-        products.add(new Product(3, "Carne de Lentejas", 5000d));
-        /*products.add(new Product(4, "Pollo Agridulce", 5800d));
-        products.add(new Product(5, "Cerdo Tropical", 6900d));
-        products.add(new Product(6, "Res Teriyaki", 6200d));*/
+        products.add(new Product(3, "Carne de Lentejas", 8000d));
+        products.add(new Product(4, "Tocineta", 3000d));
+        products.add(new Product(5, "Cebolla Caramelizada", 2500d));
+        products.add(new Product(6, "Pulled Pork", 5000d));
 
     }
 

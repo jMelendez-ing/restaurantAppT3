@@ -1,7 +1,10 @@
 package BurgerApp;
 
 import access.IProductRepository;
+import access.ProductRepositoryImplArrays;
 import domain.Product;
+import domain.Size;
+import services.DishBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +12,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BurgerDishBuilder extends DishBuilder{
+public class BurgerDishBuilder extends DishBuilder {
 
     IProductRepository myRepository;
     BurgerDish myBurgerDish;
@@ -48,8 +51,8 @@ public class BurgerDishBuilder extends DishBuilder{
     @Override
     public DishBuilder init() {
         myRepository = new ProductRepositoryImplArrays();
-        myDish = new OrientalDish(0.0);
-        myOrientalDish = (OrientalDish) myDish;
+        myDish = new BurgerDish(0.0);
+        myBurgerDish = (BurgerDish) myDish;
         //Obtenemos todos los productos
         allProducts = myRepository.findAll();
         // Obtenemos las bases y las opciones
@@ -66,13 +69,13 @@ public class BurgerDishBuilder extends DishBuilder{
 
     @Override
     public DishBuilder setCore() {
-        myOrientalDish.setBase(read(bases, "Base"));
+        myBurgerDish.setBase(read(bases, "Base"));
         return this;
     }
 
     @Override
     public boolean addPart() {
-        myOrientalDish.addOption(read(options, "Opcion"));
+        myBurgerDish.addOption(read(options, "Opcion"));
         return ("S".equals(read("Presione S para más opciones")));
 
     }
@@ -80,9 +83,9 @@ public class BurgerDishBuilder extends DishBuilder{
     @Override
     public DishBuilder setSize() {
         String tamano = read("Presione la letra correspondiente para el tamaño Personal(P), Doble (D), Familiar (F)");
-        if(tamano.equals("F")) myOrientalDish.setSize(Size.FAMILY);
-        if(tamano.equals("D")) myOrientalDish.setSize(Size.DOUBLE);
-        if(tamano.equals("P")) myOrientalDish.setSize(Size.PERSONAL);
+        if(tamano.equals("F")) myBurgerDish.setSize(Size.FAMILY);
+        if(tamano.equals("D")) myBurgerDish.setSize(Size.DOUBLE);
+        if(tamano.equals("P")) myBurgerDish.setSize(Size.PERSONAL);
         return this;
     }
 }

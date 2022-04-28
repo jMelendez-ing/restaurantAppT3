@@ -5,9 +5,9 @@ import domain.Dish;
 
 public class DishDirector {
 
-    private final BurgerDishBuilder builder;
+    private final DishBuilder builder;
 
-    public DishDirector(BurgerDishBuilder builder) {
+    public DishDirector(DishBuilder builder) {
         this.builder = builder;
     }
 
@@ -19,7 +19,7 @@ public class DishDirector {
         boolean moreParts = true;
         builder.init();
         builder.setCore();
-        while (moreParts{
+        while (moreParts){
             moreParts = builder.addPart();
         }
         builder.setSize();
