@@ -44,12 +44,13 @@ public class BurgerDish extends Dish {
 
     @Override
     public double getPrice() {
+
         price = base.getPrice();
         for (Product product : myOptions) {
             price = price + product.getPrice();
         }
-        if (size.equals(Size.DOUBLE.getDoubleDataData())) price *= Size.DOUBLE.getDoubleDataData();
-        if (size.equals(Size.FAMILY.getDoubleDataData())) price *= Size.FAMILY.getDoubleDataData();
+        if(size==Size.DOUBLE) price = 1.8*price;
+        if(size==Size.FAMILY) price = 3*price;
         return price;
 
     }
